@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Schoolbell', sans-serif;
+}
+
+html,
+body,
+main {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: seashell;
+    font-weight: 400;
+    overflow: hidden;
+}
+
+main {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    display: block;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#infoText {
+    font-size: clamp(2.25rem, 6vw, 3.75rem);
+    text-align: center;
+}
+
+#game {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#computer {
+    transform: scaleX(-1);
+}
+
+#computerOption,
+#playerOption {
+    width: 90%;
+    max-width: 490px;
+    margin-left: auto;
+    position: relative;
+    transition: all 250ms ease;
+    animation: waitingForOption 1.5s ease-in-out infinite;
+}
+
+#computerOption {
+    opacity: 0.5;
+    left: 50px;
+}
+
+#playerOption {
+    left: 50px;
+    animation-duration: 1s;
+}
+
+#computerOption.end,
+#playerOption.end {
+    left: 0;
+    opacity: 1;
+    animation: none;
+}
+
+#player {
+    position: relative;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10%;
+}
+
+.options button img {
+    min-width: 12.5px;
+    width: 3.5vw;
+    max-width: 27.5px;
+    margin: auto;
+}
+
+.options [data-option="paper"] {
+    margin: 5rem 0;
+}
+
+.options [data-option="paper"] img {
+    width: 4.55vw;
+    max-width: 37.5px;
+}
+
+#playAgain {
+    width: fit-content;
+    margin: auto;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 900;
+    transform: scale(0);
+    transition: all 250ms ease;
+}
+
+#playAgain.show {
+    transform: scale(1);
+}
+
+@keyframes waitingForOption {
+    0% {
+        transform: rotate(2deg);
+    }
+
+    50% {
+    transform: rotate(-2deg);   
+    }
+
+    100% {
+        transform: rotate(2deg);
+    }
+}
